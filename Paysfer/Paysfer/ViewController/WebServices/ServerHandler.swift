@@ -47,7 +47,10 @@ class ServerHandler: NSObject{
             
             print("\(baseURL)\(url)")
             print(parametrs)
-            Alamofire.request("\(baseURL)\(url)", method: .post, parameters: parametrs, encoding: URLEncoding.default).responseJSON { (response: DataResponse<Any>) in
+            let manager = Alamofire.SessionManager.default
+            manager.session.configuration.timeoutIntervalForRequest = 80
+           
+            manager.request("\(baseURL)\(url)", method: .post, parameters: parametrs, encoding: URLEncoding.default).responseJSON { (response: DataResponse<Any>) in
                // self.sdLoader.stopAnimation()
                 
                 switch response.result {
@@ -56,7 +59,7 @@ class ServerHandler: NSObject{
                     
                     completion(JSON as! [String : AnyObject])
                 case .failure(let error):
-                    print(error)
+                    HUD.hide()
                     completion([:] as! [String : AnyObject])
                     AJAlertController.initialization().showAlertWithOkButton(aStrMessage: server_error) { (index, title) in
                         print(index,title)
@@ -85,6 +88,7 @@ class ServerHandler: NSObject{
         }else{
             AJAlertController.initialization().showAlertWithOkButton(aStrMessage: network_error) { (index, title) in
                 print(index,title)
+                HUD.hide()
             }
         }
     }
@@ -111,12 +115,14 @@ class ServerHandler: NSObject{
                         print(error.localizedDescription)
                         AJAlertController.initialization().showAlertWithOkButton(aStrMessage: server_error) { (index, title) in
                             print(index,title)
+                            HUD.hide()
                     }
                 }
             }
         }else{
             AJAlertController.initialization().showAlertWithOkButton(aStrMessage: network_error) { (index, title) in
                 print(index,title)
+                HUD.hide()
             }
         }
     }
@@ -139,6 +145,7 @@ class ServerHandler: NSObject{
                         print(error.localizedDescription)
                         AJAlertController.initialization().showAlertWithOkButton(aStrMessage: server_error) { (index, title) in
                             print(index,title)
+                            HUD.hide()
                         }
                     }
             }
@@ -146,6 +153,7 @@ class ServerHandler: NSObject{
         }else{
             AJAlertController.initialization().showAlertWithOkButton(aStrMessage: network_error) { (index, title) in
                 print(index,title)
+                HUD.hide()
             }
         }
     }
@@ -190,12 +198,14 @@ class ServerHandler: NSObject{
                     // self.sdLoader.stopAnimation()
                      AJAlertController.initialization().showAlertWithOkButton(aStrMessage: server_error) { (index, title) in
                          print(index,title)
+                        HUD.hide()
                      }
                  }
              }
          }else{
              AJAlertController.initialization().showAlertWithOkButton(aStrMessage: network_error) { (index, title) in
                  print(index,title)
+                HUD.hide()
              }
          }
      }

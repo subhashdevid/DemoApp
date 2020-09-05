@@ -62,6 +62,9 @@
 		BF248EEF24F5413800D0FD50 /* sectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF248EED24F5413800D0FD50 /* sectionHeaderTableViewCell.swift */; };
 		BF248EF024F5413800D0FD50 /* sectionHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF248EEE24F5413800D0FD50 /* sectionHeaderTableViewCell.xib */; };
 		BF2A87DB24FA885B00BA57DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF2A87DA24FA885B00BA57DE /* GoogleService-Info.plist */; };
+		BF6A4CF92503BB33000A9959 /* CustomViewHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A4CF72503BB33000A9959 /* CustomViewHeaderTableViewCell.swift */; };
+		BF6A4CFA2503BB33000A9959 /* CustomViewHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6A4CF82503BB33000A9959 /* CustomViewHeaderTableViewCell.xib */; };
+		BF6A4CFC2503C689000A9959 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A4CFB2503C689000A9959 /* SearchListViewController.swift */; };
 		BF7AD07224FFDB47002FB8DD /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD07024FFDB47002FB8DD /* AccountsTableViewCell.swift */; };
 		BF7AD07324FFDB47002FB8DD /* AccountsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7AD07124FFDB47002FB8DD /* AccountsTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -125,6 +128,9 @@
 		BF248EED24F5413800D0FD50 /* sectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		BF248EEE24F5413800D0FD50 /* sectionHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = sectionHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		BF2A87DA24FA885B00BA57DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF6A4CF72503BB33000A9959 /* CustomViewHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BF6A4CF82503BB33000A9959 /* CustomViewHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		BF6A4CFB2503C689000A9959 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		BF7AD06F24FF4774002FB8DD /* Paysfer emart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Paysfer emart.entitlements"; sourceTree = "<group>"; };
 		BF7AD07024FFDB47002FB8DD /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		BF7AD07124FFDB47002FB8DD /* AccountsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsTableViewCell.xib; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 				1D41EEB1249B9BA400BAF369 /* MenuCell.xib */,
 				1D6B9DCA24A357320036E8A7 /* SlidemenuCell.swift */,
 				1D6B9DCB24A357320036E8A7 /* SlidemenuCell.xib */,
+				BF6A4CF72503BB33000A9959 /* CustomViewHeaderTableViewCell.swift */,
+				BF6A4CF82503BB33000A9959 /* CustomViewHeaderTableViewCell.xib */,
 			);
 			path = SlideMenu;
 			sourceTree = "<group>";
@@ -424,6 +432,7 @@
 				1D9D846E2490FF460080D3B0 /* HomeViewC.swift */,
 				1D9D84702490FF6A0080D3B0 /* BannerCollectionViewCell.swift */,
 				1D410164249218F7005B6FD0 /* CatogeryCCell.swift */,
+				BF6A4CFB2503C689000A9959 /* SearchListViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -554,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6A4CFA2503BB33000A9959 /* CustomViewHeaderTableViewCell.xib in Resources */,
 				BF2A87DB24FA885B00BA57DE /* GoogleService-Info.plist in Resources */,
 				1D6BD0A724E15A4100438920 /* CartTableViewCell.xib in Resources */,
 				1D6B9DCD24A357320036E8A7 /* SlidemenuCell.xib in Resources */,
@@ -671,10 +681,12 @@
 				1D408A6C24B2FAE600EC1B00 /* StartViewController.swift in Sources */,
 				1D41EEAF249B95C700BAF369 /* SlideMenuController.swift in Sources */,
 				1D41EEB2249B9BA400BAF369 /* MenuCell.swift in Sources */,
+				BF6A4CFC2503C689000A9959 /* SearchListViewController.swift in Sources */,
 				1D6B9DCC24A357320036E8A7 /* SlidemenuCell.swift in Sources */,
 				1DC6D5762488D4CD002B6185 /* SceneDelegate.swift in Sources */,
 				1D5A36CA24C5944B0055ABD5 /* ProductDetailViewC.swift in Sources */,
 				1D408A7924B4751400EC1B00 /* AddressViewC.swift in Sources */,
+				BF6A4CF92503BB33000A9959 /* CustomViewHeaderTableViewCell.swift in Sources */,
 				1D6BD0A324E1495200438920 /* CartDetailViewController.swift in Sources */,
 				BF248EE824F5299200D0FD50 /* CheckoutViewController.swift in Sources */,
 			);

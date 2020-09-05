@@ -33,22 +33,22 @@ struct CategoryModel{
     var cat_name:String?
     var cat_slug:String?
     var image:String?
-    var s_cat:[s_cat] = []
+    var s_cat:[s_catagory] = []
     
     init(_ dict: [String: Any]) {
         self.cat_id = dict["cat_id"] as? Int
         self.cat_name = dict["cat_name"] as? String
         self.cat_slug = dict["cat_slug"] as? String
         self.image = dict["image"] as? String
-        if let val = dict["s_cat"] as? [s_cat] {
+        if let val = dict["s_cat"] as? [[String:Any]] {
             for item in val {
-                self.s_cat.append(item)
+                self.s_cat.append(s_catagory(item))
             }
         }
     }
 }
 
-struct s_cat {
+struct s_catagory {
     var sub_id:Int?
     var sub_name:String?
     var sub_slug:String?
@@ -105,7 +105,7 @@ struct NewArrivalModel{
 }
 
 class HomeViewC: UIViewController {
-   
+    
     
     
     
@@ -117,11 +117,12 @@ class HomeViewC: UIViewController {
     @IBOutlet weak var tblMenu: UITableView!
     @IBOutlet weak var vwMenu: UIView!
     @IBOutlet weak var btn: UIButton!
+    @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var lblCart: UILabel!
     
     @IBOutlet weak var featuredCollection: UICollectionView!
     @IBOutlet weak var newArribleCollection: UICollectionView!
-
+    
     
     internal var arrayImage = [UIImage]()
     var presentingEndA = UISlider()
@@ -156,6 +157,7 @@ class HomeViewC: UIViewController {
         self.featuredCollection.register(UINib.init(nibName: "FeaturedCollectionVCell", bundle: nil), forCellWithReuseIdentifier: FeaturedCollectionVCell.reuseId)
         self.newArribleCollection.register(UINib.init(nibName: "FeaturedCollectionVCell", bundle: nil), forCellWithReuseIdentifier: FeaturedCollectionVCell.reuseId)
         
+        self.searchBtn.addTarget(self, action: #selector(goToSearchOption), for: .touchUpInside)
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(moveFrame), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view.
@@ -163,13 +165,13 @@ class HomeViewC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-       homeProductData()
+        homeProductData()
     }
     override func viewDidAppear(_ animated: Bool) {
-           homeProductData()
-           
-           
-       }
+        homeProductData()
+        
+        
+    }
     private func setupSideMenu() {
         
         SideMenuManager.default.leftMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
@@ -184,6 +186,15 @@ class HomeViewC: UIViewController {
         pgControl.subviews.forEach {
             $0.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         }
+    }
+    
+    @objc func goToSearchOption(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "SearchListViewController") as! SearchListViewController
+        
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -296,12 +307,12 @@ class HomeViewC: UIViewController {
         
         
         
-       // HUD.show(.labeledSuccess(title: "ytr", subtitle: ""), onView: self.view)
+        // HUD.show(.labeledSuccess(title: "ytr", subtitle: ""), onView: self.view)
         HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
         service.getResponseFromServer(parametrs: "slider.php") { (results) in
             let status = results["status"] as? String ?? ""
             if status == "1"{
-               HUD.hide()
+                HUD.hide()
                 if let quets = results["data"] as? [[String:Any]]{
                     for item in quets{
                         //  print(item)
@@ -328,7 +339,7 @@ class HomeViewC: UIViewController {
     
     
     func categoryApi(){
-      HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
+        HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
         
         service.getResponseFromServer(parametrs: "demo_category.php?category=category") { (results) in
             let status = results["status"] as? String ?? ""
@@ -342,14 +353,14 @@ class HomeViewC: UIViewController {
                         self.arrayName.append(newarr)
                         
                         
-                       // self.defaults.set(self.arrayName, forKey: "SavedStringArray")
+                        // self.defaults.set(self.arrayName, forKey: "SavedStringArray")
                         
-
+                        
                         
                         self.categoryData.append(CategoryModel(item))
                     }
                     UserDefaults.standard.set(self.arrayName, forKey: "SavedStringArray")
-
+                    
                     
                     
                     
@@ -371,7 +382,7 @@ class HomeViewC: UIViewController {
     }
     
     @IBAction func backGroundMenuBtn(_ sender: UIButton) {
-                
+        
     }
     
     @IBAction func menuAction(_ sender: UIButton) {
@@ -587,35 +598,35 @@ extension HomeViewC:UICollectionViewDataSource
     }
     
     @objc func addtoCartfeatureData(_ sender: UIButton) {
-           HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
-           let userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
-           
-           let params : [String:Any] = ["user_id":"\(userData.user_id ?? "")",
-                           
-               "product_id":"\(featureData[sender.tag].pro_id ?? "")",
-               "variation_id":"0",
-               "qty":"1"]
-           
-           service.getResponseFromServerByPostMethod(parametrs: params, url: "add_to_cart.php?") { (results) in
-               
-               let status = results["status"] as? String ?? ""
-               if status == "1"{
-                   HUD.hide()
-                   Helper.showSnackBar(with: results["message"] as? String ?? "")
-                                   
-                                   
-                   DispatchQueue.main.async {
-                       
-                       self.homeProductData()
-                       
-                   }
-                   
-               }else{
-                   HUD.hide()
-                   Helper.showSnackBar(with: results["message"] as? String ?? "")
-               }
-           }
-       }
+        HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
+        let userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
+        
+        let params : [String:Any] = ["user_id":"\(userData.user_id ?? "")",
+            
+            "product_id":"\(featureData[sender.tag].pro_id ?? "")",
+            "variation_id":"0",
+            "qty":"1"]
+        
+        service.getResponseFromServerByPostMethod(parametrs: params, url: "add_to_cart.php?") { (results) in
+            
+            let status = results["status"] as? String ?? ""
+            if status == "1"{
+                HUD.hide()
+                Helper.showSnackBar(with: results["message"] as? String ?? "")
+                
+                
+                DispatchQueue.main.async {
+                    
+                    self.homeProductData()
+                    
+                }
+                
+            }else{
+                HUD.hide()
+                Helper.showSnackBar(with: results["message"] as? String ?? "")
+            }
+        }
+    }
     
     
     @objc func addtoCartNewArrival(_ sender: UIButton) {
@@ -623,7 +634,7 @@ extension HomeViewC:UICollectionViewDataSource
         let userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
         
         let params : [String:Any] = ["user_id":"\(userData.user_id ?? "")",
-                        
+            
             "product_id":"\(newArrival[sender.tag].pro_id ?? "")",
             "variation_id":"0",
             "qty":"1"]
@@ -634,8 +645,8 @@ extension HomeViewC:UICollectionViewDataSource
             if status == "1"{
                 HUD.hide()
                 Helper.showSnackBar(with: results["message"] as? String ?? "")
-                                
-                                
+                
+                
                 DispatchQueue.main.async {
                     
                     self.homeProductData()
@@ -745,7 +756,7 @@ extension HomeViewC:UICollectionViewDataSource
                         Helper.showSnackBar(with: results["message"] as? String ?? "")
                         let count = results["wish_count"] as? String ?? ""
                         
-                                                
+                        
                         DispatchQueue.main.async {
                             if let tabItems = self.tabBarController?.tabBar.items {
                                 // In this case we want to modify the badge number of the third tab:
@@ -869,7 +880,7 @@ extension HomeViewC:UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
             return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         }
             
-       else if collectionView == categryCollection{
+        else if collectionView == categryCollection{
             return CGSize(width: collectionView.frame.size.width/3 - 10, height: collectionView.frame.size.height)
         }
             
@@ -894,13 +905,13 @@ extension HomeViewC:UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
             // nextViewController.lblHeading.text = categoryData[indexPath.row].cat_name
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
-        
+            
         else if collectionView == featuredCollection{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailViewC") as! ProductDetailViewC
             
             guard let p_Id = featureData[indexPath.row].pro_id else{ return }
-           
+            
             nextViewController.p_id = p_Id
             self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.pushViewController(nextViewController, animated: true)
@@ -931,8 +942,8 @@ extension HomeViewC:UIScrollViewDelegate{
 extension UIView{
     func roundedView(){
         let maskPath1 = UIBezierPath(roundedRect: bounds,
-            byRoundingCorners: [.bottomLeft , .bottomRight],
-            cornerRadii: CGSize(width: 8, height: 18))
+                                     byRoundingCorners: [.bottomLeft , .bottomRight],
+                                     cornerRadii: CGSize(width: 8, height: 18))
         let maskLayer1 = CAShapeLayer()
         maskLayer1.frame = bounds
         maskLayer1.path = maskPath1.cgPath
@@ -943,8 +954,8 @@ extension UIView{
 extension UIImageView{
     func roundedimgView(){
         let maskPath1 = UIBezierPath(roundedRect: bounds,
-            byRoundingCorners: [.topRight , .topLeft],
-            cornerRadii: CGSize(width: 8, height: 8))
+                                     byRoundingCorners: [.topRight , .topLeft],
+                                     cornerRadii: CGSize(width: 8, height: 8))
         let maskLayer1 = CAShapeLayer()
         maskLayer1.frame = bounds
         maskLayer1.path = maskPath1.cgPath

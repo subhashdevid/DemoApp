@@ -214,21 +214,25 @@ class LoginViewController: UIViewController,GIDSignInDelegate,ASAuthorizationCon
                      withError error: Error!) {
         if (error == nil) {
             
-            guard let authentication = user.authentication else { return }
-            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,accessToken: authentication.accessToken)
             
-            let userModel = Auth.auth().currentUser
-            if userModel?.uid != nil {
+                      // Perform any operations on signed in user here.
+                      let userUid = user.userID                  // For client-side use only!
+                      //let Id = user.authentication.idToken // Safe to send to the server
+                      let userName = user.profile.name
+                      let userEmail = user.profile.email
+print(userUid,userName,userEmail)
+            
+            if user.userID != nil {
                  print("Login Successful.")
-                let userUid = userModel?.uid ?? ""
-                let userName = userModel?.displayName ?? ""
-                let userEmail = userModel?.email ?? ""
+                //let userUid = user.userID ?? ""
+               // let userName = user.userID ?? ""
+               // let userEmail = userModel?.email ?? ""
                 
-              let dict : [String:AnyObject] = ["user_name":userName as AnyObject,"user_email": userEmail as AnyObject,"oauth_uid":userUid as AnyObject,"oauth_provider":"google" as AnyObject]
-                UserDefaults().setUserDetails(value: dict)
-                 UserDefaults().synchronize()
+            let dict : [String:AnyObject] = ["user_name":userName as AnyObject,"user_email": userEmail as AnyObject,"oauth_uid":userUid as AnyObject,"oauth_provider":"google" as AnyObject]
+             UserDefaults().setUserDetails(value: dict)
+             UserDefaults().synchronize()
                 
-                self.signInWithSocialMediaAccount(dict)
+            self.signInWithSocialMediaAccount(dict)
                 
             } else {
                 print("Login failure.")
@@ -294,24 +298,30 @@ class LoginViewController: UIViewController,GIDSignInDelegate,ASAuthorizationCon
        
        let params : [String:AnyObject] = dict
        
-      // HUD.show(.labeledProgress(title: "", subtitle: "Loading..."))
-       
-       service.getResponseFromServerByPostMethod(parametrs: params, url: "facebook_login.php?") { (results) in
-           
+       HUD.show(.labeledProgress(title: "", subtitle: "Loading..."))
+      
+        service.getResponseFromServerByPostMethod(parametrs: params, url: "facebook_login.php?") { (results) in
+                      
+              
            let status = results["status"] as? String ?? ""
            if status == "1"{
                HUD.hide()
-               let alertController = UIAlertController(title: "Success", message: results["message"] as? String ?? "", preferredStyle: .alert)
+               let data = results["data"] as! [String:Any]
+               UserDefaults.standard.setUserDetails(value: data)
                
-               let cancelAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel) {
-                   UIAlertAction in
-                   
-                   self.hideBtn.isHidden = true
-                   
-                   
-               }
-               alertController.addAction(cancelAction)
-               self.present(alertController, animated: true, completion: nil)
+               
+               let userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
+               print(userData)
+               
+               let token = data["user_id"] as! String
+               
+               UserDefaults.standard.set(token, forKey: "uid")
+               // let token = Helper.
+               UserDefaults.standard.setLoggedIn(value: true)
+               
+               
+               let login = self.storyboard?.instantiateViewController(withIdentifier: "TabbarViewController")
+               self.navigationController?.pushViewController(login!, animated: true)
            }else{
                HUD.hide()
                let alertController = UIAlertController(title: "Failure", message: results["message"] as? String ?? "", preferredStyle: .alert)
@@ -328,6 +338,11 @@ class LoginViewController: UIViewController,GIDSignInDelegate,ASAuthorizationCon
            }
        }
    }
+    
+    
+  
+    
+    
     
     @IBAction func signUpAction(_ sender: UIButton) {
         

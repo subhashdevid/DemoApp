@@ -183,6 +183,7 @@ class AccountViewC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             UIAlertAction in
             
             UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+            UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.sideMenuList.rawValue)
             UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.userdetails.rawValue)
             
             let login = self.storyboard?.instantiateViewController(withIdentifier: "TabbarViewController")

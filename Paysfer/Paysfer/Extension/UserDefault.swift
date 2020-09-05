@@ -15,6 +15,7 @@ enum UserDefaultsKeys : String {
     case device_token
     case device_id
     case profileImg
+    case sideMenuList
 }
 
 extension UserDefaults{
@@ -58,6 +59,7 @@ extension UserDefaults{
         //synchronize()
     }
     
+    
     func isLoggedIn()-> Bool {
         return bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
     }
@@ -71,6 +73,18 @@ extension UserDefaults{
     //Retrieve User ID
     func getUserID() -> Int{
         return integer(forKey: UserDefaultsKeys.userID.rawValue)
+    }
+    
+    
+    
+    func setSetSideMenuListIn(detailList: Array<Dictionary<String,AnyObject>>) {
+        set(detailList, forKey: UserDefaultsKeys.sideMenuList.rawValue) as? Array<Dictionary<String,AnyObject>> ?? []
+    }
+    
+    func getSetSideMenuListIn() -> Array<Dictionary<String,AnyObject>> {
+       
+        return array(forKey: UserDefaultsKeys.sideMenuList.rawValue) as? Array<Dictionary<String,AnyObject>> ?? []
+        //synchronize()
     }
     
 }

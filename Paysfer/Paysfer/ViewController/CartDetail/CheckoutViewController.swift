@@ -71,6 +71,7 @@ class CheckoutViewController: UIViewController {
                     self.tblCart.reloadData()
                 }
             }else{
+                HUD.hide()
                 Helper.showSnackBar(with: results["message"] as? String ?? "")
             }
         }

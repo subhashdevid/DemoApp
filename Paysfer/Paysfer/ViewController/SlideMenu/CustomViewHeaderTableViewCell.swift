@@ -1,19 +1,17 @@
 //
-//  SlidemenuCell.swift
+//  CustomViewHeaderTableViewCell.swift
 //  Paysfer
 //
-//  Created by VISHAL VERMA on 24/06/20.
+//  Created by SUBHASH KUMAR on 05/09/20.
 //  Copyright © 2020 VISHAL VERMA. All rights reserved.
 //
 
 import UIKit
 
-class SlidemenuCell: UITableViewCell {
+class CustomViewHeaderTableViewCell: UITableViewCell {
 
-     static let reuseId = "SlidemenuCell"
-    
-    @IBOutlet weak var cellLabel: UILabel!
-    
+     @IBOutlet weak var cellLabel: UILabel!
+     @IBOutlet weak var cellButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

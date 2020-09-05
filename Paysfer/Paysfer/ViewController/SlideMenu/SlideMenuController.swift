@@ -20,25 +20,16 @@ class SlideMenuController: UITableViewController {
     var categoryData = [CategoryModel]()
     var userData : userModel?
     let defaults = UserDefaults.standard
-    
+    var isCellSeleced : Bool = false
+    var sectionSelected = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if let myarray = UserDefaults.standard.array(forKey: "SavedStringArray") as? [String]{
-//            self.categoryData = myarray
-//
-//        }
-
-        tblSlide.reloadData()
-        
-        categoryApi()
-        
         tblSlide.layer.shadowColor = UIColor.black.cgColor
         tblSlide.layer.shadowOffset = CGSize(width: 110.0, height: 115.0)
         tblSlide.layer.shadowRadius = 115
         tblSlide.layer.shadowOpacity = 1
         
-        // self.tblSlide.register(UINib.init(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: MenuCell.reuseId)
+       
         self.tblSlide.register(UINib.init(nibName: "SlidemenuCell", bundle: nil), forCellReuseIdentifier: SlidemenuCell.reuseId)
         
         guard let menu = navigationController as? SideMenuNavigationController, menu.blurEffectStyle == nil else {
@@ -58,12 +49,21 @@ class SlideMenuController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let quets = UserDefaults.standard.getSetSideMenuListIn() as Array<Dictionary<String,AnyObject>>
+        
+        if quets.count>0{
+             self.categoryData = []
+            for item in quets{
+                self.categoryData.append(CategoryModel(item))
+            }
+        }
+        
+        if !(self.categoryData.count>0){
+            self.categoryApi()
+        }
         
         if UserDefaults.standard.isLoggedIn() {
-            
             userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
-            
-            
             lblHeading.text = "My Account/logout"
         }
     }
@@ -103,10 +103,17 @@ class SlideMenuController: UITableViewController {
             if status == "1"{
                 
                 if let quets = results["data"] as? [[String:Any]]{
+                    if (quets.count)>0{
+                        UserDefaults.standard.setSetSideMenuListIn(detailList: quets as Array<Dictionary<String, AnyObject>>)
+                        UserDefaults.standard.synchronize()
+                    }
                     for item in quets{
                           print(item)
                         self.categoryData.append(CategoryModel(item))
+                        
                     }
+                    
+                    
                     DispatchQueue.main.async {
                         self.tblSlide.reloadData()
                     }
@@ -125,11 +132,31 @@ class SlideMenuController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return categoryData.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryData.count
+        let secRowArr = categoryData[section].s_cat
+        return secRowArr.count
+    }
+
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        tableView.register(UINib(nibName: "CustomViewHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomViewHeaderTableViewCell")
+        let headerView = tableView.dequeueReusableCell(withIdentifier: "CustomViewHeaderTableViewCell" ) as! CustomViewHeaderTableViewCell
+
+        headerView.cellLabel.text = "  \(categoryData[section].cat_name ?? "")"
+        headerView.cellButton.tag = section
+        
+        
+        headerView.cellButton.addTarget(self, action: #selector(manageSection), for: .touchUpInside)
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     
@@ -138,30 +165,72 @@ class SlideMenuController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SlidemenuCell", for: indexPath) as! SlidemenuCell
         cell.selectionStyle = .none
-        cell.textLabel?.text = categoryData[indexPath.row].cat_name
+        
+        let cellModel = categoryData[indexPath.section].s_cat
+        cell.cellLabel.text = "\(cellModel[indexPath.row].sub_name ?? "")"
         return cell
         
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let secRowArr = categoryData[indexPath.section].s_cat
+        if secRowArr.count>0{
+            guard let p_Id : Int = secRowArr[indexPath.row].sub_id else{ return }
+            guard let catName : String = secRowArr[indexPath.row].sub_name else{ return }
+            self.categorySelected(catName: catName, p_id: p_Id)
+        }
         
+    }
+    
+    
+    
+    func categorySelected(catName:String,p_id:Int) -> Void {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryDetailViewC") as! CategoryDetailViewC
+               let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryDetailViewC") as! CategoryDetailViewC
+               
+             
+               
+               nextViewController.heading = catName
+               
+               nextViewController.cat_id = "\(p_id)"
+            //    nextViewController.lblHeading.text = categoryData[indexPath.row].cat_name
+               self.navigationController?.pushViewController(nextViewController, animated: true)
         
-        guard let p_Id = categoryData[indexPath.row].cat_id else{ return }
-        guard let catName = categoryData[indexPath.row].cat_name else{ return }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        nextViewController.heading = catName
+        if isCellSeleced == true && sectionSelected == indexPath.section{
+            return 60
+        }else{
+            return 0
+        }
+       
         
-        nextViewController.cat_id = "\(p_Id)"
-     //    nextViewController.lblHeading.text = categoryData[indexPath.row].cat_name
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    
+    @objc func manageSection(_ sender : UIButton) -> Void {
+        let secRowArr = categoryData[sender.tag].s_cat
+        if secRowArr.count>0{
+            isCellSeleced = !isCellSeleced
+            sectionSelected = sender.tag
+            self.tblSlide.reloadData()
+        }else{
+            guard let p_Id : Int = categoryData[sender.tag].cat_id else{ return }
+            guard let catName : String = categoryData[sender.tag].cat_name else{ return }
+            self.categorySelected(catName: catName, p_id: p_Id)
+        }
     }
     
     
     @objc func btnAction(_ sender: UIButton){
         
     }
+    
+    
+    
     
 }
