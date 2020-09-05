@@ -824,7 +824,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Paysfer/Paysfer emart.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9C26KU5VLL;
 				INFOPLIST_FILE = Paysfer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -832,6 +832,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paysfer.com;
 				PRODUCT_NAME = "Paysfer emart";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -848,7 +849,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Paysfer/Paysfer emart.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9C26KU5VLL;
 				INFOPLIST_FILE = Paysfer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -856,6 +857,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paysfer.com;
 				PRODUCT_NAME = "Paysfer emart";
 				PROVISIONING_PROFILE_SPECIFIER = "";
