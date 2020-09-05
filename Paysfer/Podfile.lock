@@ -1,0 +1,189 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
+  - Cosmos (22.1.0)
+  - CountryPickerView (3.1.1)
+  - DPDropDownMenu (0.4.0)
+  - FBSDKCoreKit (5.15.1):
+    - FBSDKCoreKit/Basics (= 5.15.1)
+    - FBSDKCoreKit/Core (= 5.15.1)
+  - FBSDKCoreKit/Basics (5.15.1)
+  - FBSDKCoreKit/Core (5.15.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.15.1):
+    - FBSDKLoginKit/Login (= 5.15.1)
+  - FBSDKLoginKit/Login (5.15.1):
+    - FBSDKCoreKit (~> 5.0)
+  - Firebase/Auth (6.31.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 6.9.0)
+  - Firebase/CoreOnly (6.31.0):
+    - FirebaseCore (= 6.10.1)
+  - FirebaseAuth (6.9.0):
+    - FirebaseCore (~> 6.10)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (6.10.1):
+    - FirebaseCoreDiagnostics (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+  - FirebaseCoreDiagnostics (1.6.0):
+    - GoogleDataTransport (~> 7.2)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+    - nanopb (~> 1.30906.0)
+  - FirebaseUI/Auth (8.4.2):
+    - Firebase/Auth (~> 6.0)
+    - GoogleUtilities/UserDefaults
+  - FirebaseUI/Facebook (8.4.2):
+    - FBSDKLoginKit (~> 5.0)
+    - FirebaseUI/Auth
+  - GoogleDataTransport (7.3.0):
+    - nanopb (~> 1.30906.0)
+  - GoogleMaps (3.8.0):
+    - GoogleMaps/Maps (= 3.8.0)
+  - GoogleMaps/Base (3.8.0)
+  - GoogleMaps/Maps (3.8.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.8.0):
+    - GoogleMaps/Base (= 3.8.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.7.2):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (6.7.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (6.7.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.7.2)"
+  - GoogleUtilities/Reachability (6.7.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.7.2):
+    - GoogleUtilities/Logger
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.4.0):
+    - GTMSessionFetcher/Full (= 1.4.0)
+  - GTMSessionFetcher/Core (1.4.0)
+  - GTMSessionFetcher/Full (1.4.0):
+    - GTMSessionFetcher/Core (= 1.4.0)
+  - IQKeyboardManagerSwift (6.5.5)
+  - nanopb (1.30906.0):
+    - nanopb/decode (= 1.30906.0)
+    - nanopb/encode (= 1.30906.0)
+  - nanopb/decode (1.30906.0)
+  - nanopb/encode (1.30906.0)
+  - PKHUD (5.3.0)
+  - ProgressHUD (2.70)
+  - PromisesObjC (1.2.10)
+  - SCLAlertView (0.8)
+  - SDLoader (0.2.0)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
+  - SideMenu (6.4.8)
+  - SkyFloatingLabelTextField (3.8.0)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.9.1)
+  - Cosmos
+  - CountryPickerView
+  - DPDropDownMenu
+  - Firebase/Auth
+  - FirebaseUI/Facebook
+  - GoogleMaps
+  - GooglePlaces
+  - GoogleSignIn
+  - IQKeyboardManagerSwift
+  - PKHUD (~> 5.0)
+  - ProgressHUD
+  - SCLAlertView
+  - SDLoader
+  - SDWebImage (~> 4.0)
+  - SideMenu
+  - SkyFloatingLabelTextField
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AppAuth
+    - Cosmos
+    - CountryPickerView
+    - DPDropDownMenu
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - Firebase
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseUI
+    - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
+    - GoogleSignIn
+    - GoogleUtilities
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - IQKeyboardManagerSwift
+    - nanopb
+    - PKHUD
+    - ProgressHUD
+    - PromisesObjC
+    - SCLAlertView
+    - SDLoader
+    - SDWebImage
+    - SideMenu
+    - SkyFloatingLabelTextField
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
+  CountryPickerView: a894dbd79fe7b43ca0ab6f20363272aa12b03b74
+  DPDropDownMenu: 2230482ed6d33fd5b8863cab916cbcdd9414a772
+  FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
+  FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
+  Firebase: 87483fa19acfdf99244523f2389e931927b91457
+  FirebaseAuth: 09f086fae98643f1ef235674cf3ae171ce26f5ba
+  FirebaseCore: 6fb954e350af0885803d5aa49865d15d9a6b264c
+  FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
+  FirebaseUI: e57e9b9c4340631151fbe67a14206d23d0974f37
+  GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
+  GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
+  GooglePlaces: d5f70c3e9e427964fdeca1301a665d276ccd8754
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
+  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
+  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SDLoader: e35b571db413a4a98b6f58469b16dc095289c9f6
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 47e7ec73628cc313b07438081fa15dee42d45992
+
+COCOAPODS: 1.10.0.beta.2

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGU-Oz-A5i">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_1024_1024" translatesAutoresizingMaskIntoConstraints="NO" id="aPn-Sd-ySA">
+                                        <rect key="frame" x="20" y="259" width="374" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="bh1-KE-ZOT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="aPn-Sd-ySA" firstAttribute="centerY" secondItem="OGU-Oz-A5i" secondAttribute="centerY" id="2m2-mJ-9Wu"/>
+                                    <constraint firstAttribute="trailing" secondItem="aPn-Sd-ySA" secondAttribute="trailing" constant="20" id="LOc-Us-eW6"/>
+                                    <constraint firstItem="aPn-Sd-ySA" firstAttribute="leading" secondItem="OGU-Oz-A5i" secondAttribute="leading" constant="20" id="Z7L-9b-qik"/>
+                                    <constraint firstItem="aPn-Sd-ySA" firstAttribute="centerX" secondItem="OGU-Oz-A5i" secondAttribute="centerX" id="d5x-XN-hsJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OGU-Oz-A5i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CyM-kc-qfI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OGU-Oz-A5i" secondAttribute="trailing" id="UVQ-7Z-eph"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OGU-Oz-A5i" secondAttribute="bottom" id="Z5c-BS-ZtI"/>
+                            <constraint firstItem="OGU-Oz-A5i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kUE-IO-uyc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="78" y="204"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_1024_1024" width="1024" height="1024"/>
+    </resources>
+</document>

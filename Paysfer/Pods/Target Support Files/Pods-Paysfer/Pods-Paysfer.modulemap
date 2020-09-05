@@ -1,0 +1,6 @@
+framework module Pods_Paysfer {
+  umbrella header "Pods-Paysfer-umbrella.h"
+
+  export *
+  module * { export * }
+}

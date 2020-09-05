@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>765705101613-ameetv1scc4g2oovba80ejnn09nmavnu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.765705101613-ameetv1scc4g2oovba80ejnn09nmavnu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>765705101613-r9vaam36d2hk2maeionpsn4betsog3e9.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBCnaMJDGgH6DzpsJkNjXx41iS9OWCa-r0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>765705101613</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.paysfer.com</string>
+	<key>PROJECT_ID</key>
+	<string>paysfer-5dd64</string>
+	<key>STORAGE_BUCKET</key>
+	<string>paysfer-5dd64.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:765705101613:ios:c3f70b39ef99ba6020b3a4</string>
+	<key>DATABASE_URL</key>
+	<string>https://paysfer-5dd64.firebaseio.com</string>
+</dict>
+</plist>
