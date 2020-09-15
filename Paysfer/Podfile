@@ -10,7 +10,7 @@ target 'Paysfer' do
  pod 'SDWebImage', '~> 4.0'
  pod 'Alamofire','~> 4.9.1'
  pod 'SDLoader'
- pod 'DPDropDownMenu'
+ pod 'DropDown'
  pod 'CountryPickerView'
  pod 'IQKeyboardManagerSwift'
  pod 'GooglePlaces'

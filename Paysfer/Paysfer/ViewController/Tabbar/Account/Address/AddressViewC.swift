@@ -43,12 +43,13 @@ class AddressViewC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.addressTableView.frame.size.width, height: 45))
+       // let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.addressTableView.frame.size.width, height: 45))
         let headerCell = addressTableView.dequeueReusableCell(withIdentifier: "sectionHeaderTableViewCell") as! sectionHeaderTableViewCell
         
         
-        headerView.addSubview(headerCell)
-        return headerView
+        headerCell.cellButton.addTarget(self, action: #selector(addAddressAction), for: .touchUpInside)
+        
+        return headerCell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -58,10 +59,17 @@ class AddressViewC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = addressTableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath) as! AddressTableViewCell
         
-        cell.backgroundColor = .red
+        cell.backgroundColor = .white
         return cell
     }
     
+   
     
+    @objc func addAddressAction(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressViewController") as? AddAddressViewController
+              self.navigationController?.pushViewController(vc!, animated: true)
+              
+        
+    }
     
 }

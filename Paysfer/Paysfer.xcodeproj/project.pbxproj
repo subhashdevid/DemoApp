@@ -65,8 +65,12 @@
 		BF6A4CF92503BB33000A9959 /* CustomViewHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A4CF72503BB33000A9959 /* CustomViewHeaderTableViewCell.swift */; };
 		BF6A4CFA2503BB33000A9959 /* CustomViewHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6A4CF82503BB33000A9959 /* CustomViewHeaderTableViewCell.xib */; };
 		BF6A4CFC2503C689000A9959 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A4CFB2503C689000A9959 /* SearchListViewController.swift */; };
+		BF786718250CFD4400D8D17E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF786717250CFD4400D8D17E /* Colors.swift */; };
 		BF7AD07224FFDB47002FB8DD /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD07024FFDB47002FB8DD /* AccountsTableViewCell.swift */; };
 		BF7AD07324FFDB47002FB8DD /* AccountsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7AD07124FFDB47002FB8DD /* AccountsTableViewCell.xib */; };
+		BFA62ACB251117E700D38D4B /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA62ACA251117E600D38D4B /* AddAddressViewController.swift */; };
+		BFA62ACE2511185F00D38D4B /* AddAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA62ACC2511185F00D38D4B /* AddAddressTableViewCell.swift */; };
+		BFA62ACF2511185F00D38D4B /* AddAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA62ACD2511185F00D38D4B /* AddAddressTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,9 +135,13 @@
 		BF6A4CF72503BB33000A9959 /* CustomViewHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		BF6A4CF82503BB33000A9959 /* CustomViewHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		BF6A4CFB2503C689000A9959 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
+		BF786717250CFD4400D8D17E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BF7AD06F24FF4774002FB8DD /* Paysfer emart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Paysfer emart.entitlements"; sourceTree = "<group>"; };
 		BF7AD07024FFDB47002FB8DD /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		BF7AD07124FFDB47002FB8DD /* AccountsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsTableViewCell.xib; sourceTree = "<group>"; };
+		BFA62ACA251117E600D38D4B /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
+		BFA62ACC2511185F00D38D4B /* AddAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressTableViewCell.swift; sourceTree = "<group>"; };
+		BFA62ACD2511185F00D38D4B /* AddAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressTableViewCell.xib; sourceTree = "<group>"; };
 		CC04591ABF40533577BB71C8 /* Pods-Paysfer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paysfer.debug.xcconfig"; path = "Target Support Files/Pods-Paysfer/Pods-Paysfer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +176,9 @@
 				BF248EEA24F5370B00D0FD50 /* AddressTableViewCell.xib */,
 				BF248EED24F5413800D0FD50 /* sectionHeaderTableViewCell.swift */,
 				BF248EEE24F5413800D0FD50 /* sectionHeaderTableViewCell.xib */,
+				BFA62ACA251117E600D38D4B /* AddAddressViewController.swift */,
+				BFA62ACC2511185F00D38D4B /* AddAddressTableViewCell.swift */,
+				BFA62ACD2511185F00D38D4B /* AddAddressTableViewCell.xib */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -349,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				1D4B15F92490A838006A6643 /* UserDefault.swift */,
+				BF786717250CFD4400D8D17E /* Colors.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -577,6 +589,7 @@
 				1D77D0332490A6B5003F5655 /* AJAlertController.xib in Resources */,
 				1D41EEB3249B9BA400BAF369 /* MenuCell.xib in Resources */,
 				1DC6D57D2488D4CE002B6185 /* Assets.xcassets in Resources */,
+				BFA62ACF2511185F00D38D4B /* AddAddressTableViewCell.xib in Resources */,
 				1DC6D57B2488D4CD002B6185 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +671,7 @@
 				1D6BD0A624E15A4100438920 /* CartTableViewCell.swift in Sources */,
 				BF7AD07224FFDB47002FB8DD /* AccountsTableViewCell.swift in Sources */,
 				1DC6D5782488D4CD002B6185 /* LoginViewController.swift in Sources */,
+				BFA62ACB251117E700D38D4B /* AddAddressViewController.swift in Sources */,
 				1D883AF224A08A5C0039A3CF /* FeaturedCell.swift in Sources */,
 				BF248EEB24F5370B00D0FD50 /* AddressTableViewCell.swift in Sources */,
 				1D408A7324B4747800EC1B00 /* TermsandConditionViewC.swift in Sources */,
@@ -669,6 +683,7 @@
 				1D883AEE24A0735E0039A3CF /* TabbarViewController.swift in Sources */,
 				1D408A8124B48A9700EC1B00 /* ProfileViewC + Extension.swift in Sources */,
 				1D4B16022490A8DA006A6643 /* Reachability.swift in Sources */,
+				BFA62ACE2511185F00D38D4B /* AddAddressTableViewCell.swift in Sources */,
 				1D883B0624A219C20039A3CF /* MyOrderViewC.swift in Sources */,
 				1D4B16052490B03B006A6643 /* SignUpViewC.swift in Sources */,
 				1D9D84712490FF6A0080D3B0 /* BannerCollectionViewCell.swift in Sources */,
@@ -678,6 +693,7 @@
 				1D8FDF24248926B400374161 /* UserData.swift in Sources */,
 				1D883B0224A219950039A3CF /* AccountViewC.swift in Sources */,
 				BF248EE524F5266100D0FD50 /* CheckoutTableViewCell.swift in Sources */,
+				BF786718250CFD4400D8D17E /* Colors.swift in Sources */,
 				1D408A6C24B2FAE600EC1B00 /* StartViewController.swift in Sources */,
 				1D41EEAF249B95C700BAF369 /* SlideMenuController.swift in Sources */,
 				1D41EEB2249B9BA400BAF369 /* MenuCell.swift in Sources */,

@@ -44,6 +44,8 @@ class AccountViewC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+
         
         if UserDefaults.standard.isLoggedIn() {
             

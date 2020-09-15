@@ -116,6 +116,7 @@ class HomeViewC: UIViewController {
     @IBOutlet weak var tblFeatured: UITableView!
     @IBOutlet weak var tblMenu: UITableView!
     @IBOutlet weak var vwMenu: UIView!
+    @IBOutlet weak var navView: UIView!
     @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var lblCart: UILabel!
@@ -202,10 +203,22 @@ class HomeViewC: UIViewController {
     }
     
     @IBAction func cartDetailsScreen(_ sender: UIButton) {
+       
+        if (UserDefaults.standard.isLoggedIn() == false) {
+                   
+                   let storyBoard : UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+                   let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+                  
+                   self.navigationController?.pushViewController(nextViewController, animated: true)
+                   
+               }else{
+        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CartDetailViewController") as! CartDetailViewController
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+            
+        }
     }
     
     
@@ -487,16 +500,23 @@ extension HomeViewC:UICollectionViewDataSource
             }
             
             if let variablePro = newArriv.variable_pro{
+                       
+                
                 if variablePro == "0"{
                     
-                    cell.btnAddToCart.tag = indexPath.item
-                    cell.btnAddToCart.addTarget(self, action: #selector(self.addtoCartfeatureData(_:)), for: .touchUpInside)
+                    
+                    
+                        
+                        cell.btnAddToCart.tag = indexPath.item
+                        cell.btnAddToCart.addTarget(self, action: #selector(self.addtoCartfeatureData(_:)), for: .touchUpInside)
+                        
+                    
                 }
                 else{
                     cell.btnAddToCart.tag = indexPath.item
                     cell.btnAddToCart.addTarget(self, action: #selector(self.detailScreenfeatureData(_:)), for: .touchUpInside)
-                }
-            }
+                    }}
+            
             
             cell.btnHeart.tag = indexPath.item
             cell.btnHeart.addTarget(self, action: #selector(self.newappcetAction(_:)), for: .touchUpInside)
@@ -598,6 +618,9 @@ extension HomeViewC:UICollectionViewDataSource
     }
     
     @objc func addtoCartfeatureData(_ sender: UIButton) {
+        
+       
+        
         HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
         let userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
         
@@ -625,7 +648,9 @@ extension HomeViewC:UICollectionViewDataSource
                 HUD.hide()
                 Helper.showSnackBar(with: results["message"] as? String ?? "")
             }
-        }
+            }
+            
+        
     }
     
     

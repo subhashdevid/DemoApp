@@ -10,6 +10,9 @@ import UIKit
 
 class sectionHeaderTableViewCell: UITableViewCell {
 
+      @IBOutlet weak var cellTitleLbl: UILabel!
+      @IBOutlet weak var cellButton: UIButton!
+    
     static let reuseId = "sectionHeaderTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()

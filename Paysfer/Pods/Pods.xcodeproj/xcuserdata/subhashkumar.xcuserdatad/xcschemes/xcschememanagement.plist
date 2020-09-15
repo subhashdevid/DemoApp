@@ -39,7 +39,7 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>DPDropDownMenu.xcscheme</key>
+		<key>DropDown.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -181,7 +181,41 @@ class ProductDetailViewC: UIViewController {
     }
     @IBAction func AddToCartAction(_ sender: Any) {
         
+       
+        
+        HUD.show(.labeledProgress(title: "", subtitle: "Getting products for you..."))
+        let userData = Helper.setUserDetailsInUsermodel(details: UserDefaults.standard.getUserDetails())
+        
+        let params : [String:Any] = ["user_id":"\(userData.user_id ?? "")",
+            
+            "product_id":"\(p_id)",
+            "variation_id":"0",
+            "qty":"1"]
+        
+        service.getResponseFromServerByPostMethod(parametrs: params, url: "add_to_cart.php?") { (results) in
+            
+            let status = results["status"] as? String ?? ""
+            if status == "1"{
+                HUD.hide()
+                Helper.showSnackBar(with: results["message"] as? String ?? "")
+                
+                
+                DispatchQueue.main.async {
+                    
+                    self.homeProductData()
+                    
+                }
+                
+            }else{
+                HUD.hide()
+                Helper.showSnackBar(with: results["message"] as? String ?? "")
+            }
+            }
+            
+        
     }
+    
+  
     
     
     @IBAction func backBtnAction(_ sender: Any) {
