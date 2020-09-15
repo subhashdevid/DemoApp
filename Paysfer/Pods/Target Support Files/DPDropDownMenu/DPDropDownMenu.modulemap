@@ -1,6 +1,0 @@
-framework module DPDropDownMenu {
-  umbrella header "DPDropDownMenu-umbrella.h"
-
-  export *
-  module * { export * }
-}

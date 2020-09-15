@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double DPDropDownMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char DPDropDownMenuVersionString[];
+FOUNDATION_EXPORT double DropDownVersionNumber;
+FOUNDATION_EXPORT const unsigned char DropDownVersionString[];
 
