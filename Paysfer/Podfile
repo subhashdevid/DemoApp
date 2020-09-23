@@ -28,6 +28,6 @@ target 'Paysfer' do
  pod 'GoogleSignIn'
  pod 'FirebaseUI/Facebook'
 
-
+ pod 'Stripe'
 
 end

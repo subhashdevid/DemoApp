@@ -16,7 +16,7 @@ import PKHUD
 class CheckoutViewController: UIViewController {
     
   
-    @IBOutlet weak var tblCart: UITableView!
+    @IBOutlet weak var checkOutTableView: UITableView!
    
 
     let service = ServerHandler()
@@ -26,10 +26,10 @@ class CheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.tblCart.backgroundColor = .white
+      
         
-        self.tblCart.register(UINib.init(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: CartTableViewCell.reuseId)
-        self.tblCart.register(UINib.init(nibName: "CheckoutTableViewCell", bundle: nil), forCellReuseIdentifier: CheckoutTableViewCell.reuseId)
+        self.checkOutTableView.register(UINib.init(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: CartTableViewCell.reuseId)
+        self.checkOutTableView.register(UINib.init(nibName: "CheckoutTableViewCell", bundle: nil), forCellReuseIdentifier: CheckoutTableViewCell.reuseId)
         cartDetail()
     }
     
@@ -68,7 +68,7 @@ class CheckoutViewController: UIViewController {
                     }
                 }
                 DispatchQueue.main.async {
-                    self.tblCart.reloadData()
+                    self.checkOutTableView.reloadData()
                 }
             }else{
                 HUD.hide()
@@ -171,12 +171,28 @@ extension CheckoutViewController:UITableViewDataSource,UITableViewDelegate{
             
             cell.addressBtn.addTarget(self, action: #selector(getAddressFromList), for: .touchUpInside)
             cell.totalPriceLbl.text = "$\(self.totalP)"
+          
+             cell.proceedToPay.addTarget(self, action: #selector(self.payBtnAction(_:)), for: .touchUpInside)
             return cell
         }
     }
     
     
-    
+    @objc func payBtnAction(_ sender:UIButton) -> Void {
+          // let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController") as! ViewController
+           
+     //  let vc = CheckOutOneViewController.init()
+      
+         //  self.navigationController?.pushViewController(vc, animated: true)
+        let vc = (self.storyboard?.instantiateViewController(withIdentifier: "PaymentGatwayViewController") as? PaymentGatwayViewController)!
+        
+        vc.subtotalprice = "$\(self.totalP)"
+        vc.disCountPrice = "$ 0"
+        vc.totalPrice = "$ \(self.totalP)"
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+       }
     
     @objc func getAddressFromList(){
          let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

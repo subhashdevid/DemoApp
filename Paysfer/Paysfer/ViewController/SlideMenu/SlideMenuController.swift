@@ -40,11 +40,11 @@ class SlideMenuController: UITableViewController {
             let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
             // Reference - https://stackoverflow.com/a/57899013/7316675
             let statusBar = UIView(frame: window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero)
-            statusBar.backgroundColor = #colorLiteral(red: 0.4236943424, green: 0.2528171539, blue: 0.7804867029, alpha: 1)
+            statusBar.backgroundColor = Colors().navigationColor
             window?.addSubview(statusBar)
         } else {
             let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-            statusBar.backgroundColor = #colorLiteral(red: 0.4236943424, green: 0.2528171539, blue: 0.7804867029, alpha: 1)
+            statusBar.backgroundColor = Colors().navigationColor
         }
     }
     override func viewWillAppear(_ animated: Bool) {

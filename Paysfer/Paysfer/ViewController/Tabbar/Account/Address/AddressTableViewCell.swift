@@ -10,6 +10,13 @@ import UIKit
 
 class AddressTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cellNamelbl : UILabel!
+    @IBOutlet weak var cellMobileLbl : UILabel!
+    @IBOutlet weak var cellAddress1lbl : UILabel!
+    @IBOutlet weak var cellAddress2lbl : UILabel!
+    @IBOutlet weak var cellCityLbl : UILabel!
+    @IBOutlet weak var cellCountryLbl : UILabel!
+    @IBOutlet weak var cellBtn : UIButton!
     
     static let reuseId = "AddressTableViewCell"
     

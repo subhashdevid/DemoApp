@@ -201,9 +201,6 @@ class SignUpViewC: UIViewController {
                 "password":"\(txtPassword.text!)"]
             
             HUD.show(.labeledProgress(title: "", subtitle: "Signing..."))
-
-            
-            
             service.getResponseFromServerByPostMethod(parametrs: params, url: "register.php?") { (results) in
                 
                 let status = results["status"] as? String ?? ""

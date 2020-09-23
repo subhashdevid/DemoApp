@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,65 +20,71 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTb-RN-oIk">
                         <rect key="frame" x="5" y="5" width="310" height="143"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3R-Xo-IDa">
-                                <rect key="frame" x="35" y="10" width="270" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test t" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3R-Xo-IDa">
+                                <rect key="frame" x="10" y="10" width="285" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="123321" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP6-Ms-qXA">
-                                <rect key="frame" x="35" y="49" width="270" height="17"/>
+                                <rect key="frame" x="10" y="34" width="285" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Subscribe test, test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqX-dk-6KZ">
-                                <rect key="frame" x="35" y="75" width="270" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Subscribe test, test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqX-dk-6KZ">
+                                <rect key="frame" x="10" y="56" width="285" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Gzb, Uttar Pradesh - 201002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGU-Hi-Ae1">
-                                <rect key="frame" x="35" y="96" width="270" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Gzb, Uttar Pradesh - 201002" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGU-Hi-Ae1">
+                                <rect key="frame" x="10" y="77" width="285" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Gzb, Uttar Pradesh - 201002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxB-L4-PqW">
-                                <rect key="frame" x="35" y="116" width="270" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Gzb, Uttar Pradesh - 201002" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxB-L4-PqW">
+                                <rect key="frame" x="10" y="97" width="285" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button_compass_night.png" translatesAutoresizingMaskIntoConstraints="NO" id="GsZ-QO-KBF">
-                                <rect key="frame" x="5" y="61.5" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="lZw-mK-I8V"/>
-                                    <constraint firstAttribute="width" constant="20" id="qWH-7T-isV"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Gzb, Uttar Pradesh - 201002" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gci-Ov-Qja">
+                                <rect key="frame" x="10" y="118" width="285" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lo5-Hl-xeW">
+                                <rect key="frame" x="296" y="8" width="13" height="22"/>
+                                <state key="normal" image="dot.square" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gci-Ov-Qja" firstAttribute="top" secondItem="YxB-L4-PqW" secondAttribute="bottom" constant="4" id="77L-I0-shS"/>
+                            <constraint firstItem="gci-Ov-Qja" firstAttribute="leading" secondItem="YxB-L4-PqW" secondAttribute="leading" id="BYK-Fv-ucr"/>
+                            <constraint firstItem="Lo5-Hl-xeW" firstAttribute="centerY" secondItem="p3R-Xo-IDa" secondAttribute="centerY" id="CIL-RJ-ygb"/>
                             <constraint firstItem="BGU-Hi-Ae1" firstAttribute="leading" secondItem="CqX-dk-6KZ" secondAttribute="leading" id="Cf8-3M-GfZ"/>
-                            <constraint firstItem="GsZ-QO-KBF" firstAttribute="centerY" secondItem="zTb-RN-oIk" secondAttribute="centerY" id="EHb-0y-N1C"/>
-                            <constraint firstItem="p3R-Xo-IDa" firstAttribute="leading" secondItem="GsZ-QO-KBF" secondAttribute="trailing" constant="10" id="Isd-0F-8kp"/>
+                            <constraint firstAttribute="bottom" secondItem="gci-Ov-Qja" secondAttribute="bottom" constant="8" id="G8O-rs-xtD"/>
+                            <constraint firstAttribute="trailing" secondItem="Lo5-Hl-xeW" secondAttribute="trailing" constant="1" id="IjM-WU-D4q"/>
                             <constraint firstItem="IP6-Ms-qXA" firstAttribute="trailing" secondItem="p3R-Xo-IDa" secondAttribute="trailing" id="JTf-fu-W5i"/>
-                            <constraint firstAttribute="trailing" secondItem="p3R-Xo-IDa" secondAttribute="trailing" constant="5" id="Ksp-3Q-6kX"/>
+                            <constraint firstAttribute="trailing" secondItem="p3R-Xo-IDa" secondAttribute="trailing" constant="15" id="Ksp-3Q-6kX"/>
                             <constraint firstItem="BGU-Hi-Ae1" firstAttribute="trailing" secondItem="CqX-dk-6KZ" secondAttribute="trailing" id="O8h-kk-KlS"/>
-                            <constraint firstAttribute="bottom" secondItem="YxB-L4-PqW" secondAttribute="bottom" constant="10" id="TDI-9l-8Io"/>
-                            <constraint firstItem="CqX-dk-6KZ" firstAttribute="top" secondItem="IP6-Ms-qXA" secondAttribute="bottom" constant="9" id="TRl-ka-6pr"/>
+                            <constraint firstItem="CqX-dk-6KZ" firstAttribute="top" secondItem="IP6-Ms-qXA" secondAttribute="bottom" constant="5" id="RIT-RU-g0D"/>
                             <constraint firstItem="YxB-L4-PqW" firstAttribute="leading" secondItem="BGU-Hi-Ae1" secondAttribute="leading" id="V2d-Us-2Ot"/>
-                            <constraint firstItem="GsZ-QO-KBF" firstAttribute="leading" secondItem="zTb-RN-oIk" secondAttribute="leading" constant="5" id="YMY-xP-nTH"/>
+                            <constraint firstItem="Lo5-Hl-xeW" firstAttribute="leading" secondItem="p3R-Xo-IDa" secondAttribute="trailing" constant="1" id="YXS-gn-Q3a"/>
                             <constraint firstItem="p3R-Xo-IDa" firstAttribute="top" secondItem="zTb-RN-oIk" secondAttribute="top" constant="10" id="auB-IK-40x"/>
                             <constraint firstItem="IP6-Ms-qXA" firstAttribute="top" secondItem="p3R-Xo-IDa" secondAttribute="bottom" constant="6" id="ddi-Mb-IWW"/>
                             <constraint firstItem="YxB-L4-PqW" firstAttribute="top" secondItem="BGU-Hi-Ae1" secondAttribute="bottom" constant="3" id="gV8-hb-Z0n"/>
+                            <constraint firstItem="gci-Ov-Qja" firstAttribute="trailing" secondItem="YxB-L4-PqW" secondAttribute="trailing" id="hdf-6c-GOr"/>
                             <constraint firstItem="CqX-dk-6KZ" firstAttribute="leading" secondItem="IP6-Ms-qXA" secondAttribute="leading" id="iUi-PA-si1"/>
                             <constraint firstItem="CqX-dk-6KZ" firstAttribute="trailing" secondItem="IP6-Ms-qXA" secondAttribute="trailing" id="nIs-Xp-4pR"/>
                             <constraint firstItem="YxB-L4-PqW" firstAttribute="trailing" secondItem="BGU-Hi-Ae1" secondAttribute="trailing" id="qb2-G3-8pw"/>
                             <constraint firstItem="BGU-Hi-Ae1" firstAttribute="top" secondItem="CqX-dk-6KZ" secondAttribute="bottom" constant="4" id="snl-HZ-NUh"/>
                             <constraint firstItem="IP6-Ms-qXA" firstAttribute="leading" secondItem="p3R-Xo-IDa" secondAttribute="leading" id="wTv-HC-u0n"/>
-                            <constraint firstItem="p3R-Xo-IDa" firstAttribute="leading" secondItem="zTb-RN-oIk" secondAttribute="leading" constant="35" id="z8p-ly-wzb"/>
+                            <constraint firstItem="p3R-Xo-IDa" firstAttribute="leading" secondItem="zTb-RN-oIk" secondAttribute="leading" constant="10" id="z8p-ly-wzb"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -89,12 +95,21 @@
                     <constraint firstItem="zTb-RN-oIk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="lDP-dk-o8Q"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellAddress1lbl" destination="CqX-dk-6KZ" id="Ju3-SR-a9g"/>
+                <outlet property="cellAddress2lbl" destination="BGU-Hi-Ae1" id="1cs-n9-6lx"/>
+                <outlet property="cellBtn" destination="Lo5-Hl-xeW" id="leF-DJ-Dqh"/>
+                <outlet property="cellCityLbl" destination="YxB-L4-PqW" id="S5i-iL-VEA"/>
+                <outlet property="cellCountryLbl" destination="gci-Ov-Qja" id="lh6-Qo-c38"/>
+                <outlet property="cellMobileLbl" destination="IP6-Ms-qXA" id="LMg-CZ-k9Z"/>
+                <outlet property="cellNamelbl" destination="p3R-Xo-IDa" id="7aP-E6-FTN"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="162.38839285714286"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="button_compass_night.png" width="40" height="40"/>
+        <image name="dot.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>

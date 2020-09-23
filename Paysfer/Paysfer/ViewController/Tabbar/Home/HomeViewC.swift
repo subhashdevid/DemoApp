@@ -180,8 +180,19 @@ class HomeViewC: UIViewController {
         
         SideMenuManager.default.addPanGestureToPresent(toView: navigationController!.navigationBar)
         SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: view)
+        SideMenuManager.default.leftMenuNavigationController?.settings = self.MenuSetting()
     }
     
+    func MenuSetting() -> SideMenuSettings{
+        var set = SideMenuSettings()
+        set.statusBarEndAlpha = 0
+        set.presentationStyle = SideMenuPresentationStyle.menuSlideIn
+        set.presentationStyle.presentingEndAlpha = 0.5
+        set.menuWidth = (UIScreen.main.bounds.width)*2.5/3
+        set.alwaysAnimate = true
+        return set
+        
+    }
     
     override func viewDidLayoutSubviews() {
         pgControl.subviews.forEach {
@@ -364,11 +375,6 @@ class HomeViewC: UIViewController {
                         let newarr = item["cat_name"] as? String ?? ""
                         
                         self.arrayName.append(newarr)
-                        
-                        
-                        // self.defaults.set(self.arrayName, forKey: "SavedStringArray")
-                        
-                        
                         
                         self.categoryData.append(CategoryModel(item))
                     }

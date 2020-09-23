@@ -13,6 +13,7 @@ class CheckoutTableViewCell: UITableViewCell {
     static let reuseId = "CheckoutTableViewCell"
     @IBOutlet weak var totalPriceLbl: UILabel!
     @IBOutlet weak var addressBtn: UIButton!
+    @IBOutlet weak var proceedToPay: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

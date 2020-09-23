@@ -15,6 +15,7 @@ import FirebaseCore
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Stripe
 
 
 @available(iOS 13.0, *)
@@ -28,8 +29,10 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
 
+        
+        Stripe.setDefaultPublishableKey("pk_test_TYooMQauvdEDq54NiTphI7jx")
         UITabBar.appearance().tintColor = UIColor.white
-               UITabBar.appearance().barTintColor = #colorLiteral(red: 0.4236943424, green: 0.2528171539, blue: 0.7804867029, alpha: 1)
+        UITabBar.appearance().barTintColor = Colors().navigationColor
         
         
         FirebaseApp.configure()

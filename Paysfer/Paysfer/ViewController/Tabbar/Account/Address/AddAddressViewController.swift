@@ -17,7 +17,7 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
     let service = ServerHandler()
     
     
-    
+    var userId = ""
     var dropDown = DropDown()
     var firstName = ""
     var lastName = ""
@@ -32,6 +32,9 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
     
     var stateId = ""
     var countryId = ""
+    var selectionDefault = 0
+    
+    var isDefaultSelected : Bool = false
     
     
     var countryArr : Array<CountryModel> = []
@@ -39,7 +42,7 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        selectionDefault = 0
         self.addressTblVw.register(UINib.init(nibName: "AddAddressTableViewCell", bundle: nil), forCellReuseIdentifier: AddAddressTableViewCell.reuseId)
         // Do any additional setup after loading the view.
     }
@@ -112,7 +115,11 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
         cell.cityFld.delegate = self
         cell.zipCodeFld.delegate = self
         
-        
+        if selectionDefault == 1{
+            cell.setAsDefaultImg.image = UIImage.init(named: "selectedCheckBox")
+        }else{
+            cell.setAsDefaultImg.image = UIImage.init(named: "unselectedCheckBox")
+        }
         cell.countryBtn.addTarget(self, action: #selector(selectCountryFromList), for: .touchUpInside)
         cell.stateBtn.addTarget(self, action: #selector(selectStateFromList), for: .touchUpInside)
         cell.setAsDefaultBtn.addTarget(self, action: #selector(selectCheckBox), for: .touchUpInside)
@@ -125,6 +132,8 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
        }
         
         
+        cell.saveBtn.addTarget(self, action: #selector(validateAddressDetails), for: .touchUpInside)
+        
         return cell
         
         
@@ -132,30 +141,47 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
     }
 
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {    //delegate method
-
-        if textField.tag == 1{
-            self.firstName = textField.text!
-            
-        }else if textField.tag == 2{
-             self.lastName = textField.text!
-            
-        }else if textField.tag == 3{
-            self.phoneNumber = textField.text!
-        }else if textField.tag == 4{
-            self.phoneNumber = textField.text!
-        }else if textField.tag == 5{
-            self.homeCompany = textField.text!
-        }else if textField.tag == 6{
-             self.address1 = textField.text!
-        }else if textField.tag == 7{
-            self.address2 = textField.text!
-        }
-        else if textField.tag == 8{
-            self.zipCode = textField.text!
-        }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {    //delegate method
+//
+//       
+//    }
+    
+    
+    @objc func setAsDefaultBtn(){
+        isDefaultSelected  = !isDefaultSelected
         
-         self.addressTblVw.reloadData()
+        if isDefaultSelected == true{
+            selectionDefault = 1
+        }else{
+            selectionDefault = 0
+        }
+        self.addressTblVw.reloadData()
+    }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+         if textField.tag == 1{
+                   self.firstName = textField.text!
+                   
+               }else if textField.tag == 2{
+                    self.lastName = textField.text!
+                   
+               }else if textField.tag == 3{
+                   self.phoneNumber = textField.text!
+               }else if textField.tag == 4{
+                   self.phoneNumber = textField.text!
+               }else if textField.tag == 5{
+                   self.homeCompany = textField.text!
+               }else if textField.tag == 6{
+                    self.address1 = textField.text!
+               }else if textField.tag == 7{
+                   self.address2 = textField.text!
+               }
+               else if textField.tag == 8{
+                   self.zipCode = textField.text!
+               }
+               
+                self.addressTblVw.reloadData()
     }
     
     
@@ -239,6 +265,107 @@ class AddAddressViewController: UIViewController,UITableViewDelegate,UITableView
     @objc func selectCheckBox(_ sender :UIButton){
         
     }
+    
+    
+    @objc func validateAddressDetails(){
+        var count = 0
+        var msg = ""
+        
+        if firstName.isEmpty{
+            count += 1
+            msg = "Please enter first name"
+        }
+        if lastName.isEmpty{
+            count += 1
+            msg = "Please enter last name"
+        }
+        if phoneNumber.isEmpty{
+            count += 1
+            msg = "Please enter valid phone number"
+        }
+        if homeCompany.isEmpty{
+            count += 1
+            msg = "Please enter House No/Company Name"
+        }
+        if address1.isEmpty{
+            count += 1
+            msg = "Please enter Address line1"
+        }
+        if address2.isEmpty{
+            count += 1
+            msg = "Please enter Address line2"
+        }
+        if city.isEmpty{
+            count += 1
+            msg = "Please enter City"
+        }
+        if countryId.isEmpty{
+            count += 1
+            msg = "Please select Country Name"
+        }
+        if stateName.isEmpty{
+            count += 1
+            msg = "Please select State Name"
+        }
+        if zipCode.isEmpty{
+            count += 1
+            msg = "Please enter ZipCode"
+        }
+       
+        
+        if count == 0{
+            let json : [String : AnyObject] = ["user_id":"\(userId)" as AnyObject,
+                                               "first_name": firstName as AnyObject,
+                                               "last_name": lastName as AnyObject,
+                                               "mobile": phoneNumber as AnyObject,
+                                               "company": homeCompany as AnyObject,
+                                               "address1": address1 as AnyObject,
+                                               "address2": address2 as AnyObject,
+                                               "country": countryId as AnyObject,
+                                               "state": stateName as AnyObject,
+                                               "city": city as AnyObject,
+                                               "zipcode": zipCode as AnyObject,
+                                               "default":selectionDefault as AnyObject]
+            
+            self.submitAddressDetails(json)
+        }else{
+            
+        }
+        
+        
+       
+        
+    }
+    
+    func submitAddressDetails(_ addressDict : [String:Any]){
+         
+           
+             HUD.show(.labeledProgress(title: "", subtitle: ""))
+           
+             
+             let params : [String:Any] = addressDict
+             
+             service.getResponseFromServerByPostMethod(parametrs: params, url: "add_address.php") { (results) in
+                  let model =  StateListModel.init(results as AnyObject)
+                let status = model.status
+                 if status == "1"{
+                     HUD.hide()
+                     Helper.showSnackBar(with:  model.message)
+                    self.navigationController?.popViewController(animated: true)
+                         
+                   self.addressTblVw.reloadData()
+                     
+                     
+                 }else{
+                     HUD.hide()
+                     Helper.showSnackBar(with: results["message"] as? String ?? "")
+                 }
+             
+        }
+       }
+    
+    
+    
 }
 
 

@@ -97,6 +97,7 @@ PODS:
   - SDWebImage/Core (4.4.8)
   - SideMenu (6.4.8)
   - SkyFloatingLabelTextField (3.8.0)
+  - Stripe (20.0.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
   - SideMenu
   - SkyFloatingLabelTextField
+  - Stripe
   - SVProgressHUD
 
 SPEC REPOS:
@@ -150,6 +152,7 @@ SPEC REPOS:
     - SDWebImage
     - SideMenu
     - SkyFloatingLabelTextField
+    - Stripe
     - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -182,8 +185,9 @@ SPEC CHECKSUMS:
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  Stripe: 339e8c50d3a27dcbe9a4f35b98c260fb9715d962
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c3c0f693f5d9a05f9d14858fc44bfee20facb5a9
+PODFILE CHECKSUM: 4219725888651a8ec94943419a3b837b47091754
 
 COCOAPODS: 1.10.0.beta.2
